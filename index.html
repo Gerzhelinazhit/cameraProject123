@@ -7,6 +7,7 @@
   <title></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="mobile-web-app-capable" content="yes">
 
   <link rel="manifest" href="src/site.webmanifest">
   <link rel="apple-touch-icon" href="src/icon.png">
@@ -15,25 +16,48 @@
   <!--<link rel="stylesheet" href="css/normalize.css">-->
   <link rel="stylesheet" href="src/css/main.css">
 
+  <style>
+    div.select {
+      display: inline-block;
+      margin: 0 0 1em 0;
+    }
+    p.small {
+      font-size: 0.7em;
+    }
+    label {
+      width: 12em;
+      display: inline-block;
+    }
+  </style>
 </head>
 
 <body>
 
-  <div>
-    <video  controls autoplay>
-      <script src=src/js/main.js> </script>
-      <source src="movie.ogg" type="video/ogg">
+  <div id="container">
+    <video id="video" controls autoplay>
+      <!--<source src="movie.ogg" type="video/ogg">-->
 
     </video>
+    <img src="" class="image">
+    <canvas style="display: none"></canvas>
+    <button type="button" class="screenshot-button">Take screenshot</button>
+    <script src="src/js/screenshot.js"></script>
+    <div class="select">
+      <label for="videoSource">Video source: </label><select id="videoSource"></select>
+    </div>
+    <div class="select">
+      <label for="audioSource">Audio input source: </label><select id="audioSource"></select>
+    </div>
+
+    <div class="select">
+      <label for="audioOutput">Audio output destination: </label><select id="audioOutput"></select>
+    </div>
   </div>
 
-  <img src="" class="image">
-  <canvas style="display: none"></canvas>
-  <button type="button" class="screenshot-button">Take screenshot</button>
-  <script src="src/js/screenshot.js"></script>
 
 
 
+  <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
   <script src="src/js/plugins.js"></script>
   <script src="src/js/main.js"></script>
 
