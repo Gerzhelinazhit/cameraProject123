@@ -1,4 +1,4 @@
-var constraints = { audio: true, video: { width: 1280, height: 720, logicalSurface: 1 } };
+var constraints = { audio: true, video: { width: 1280, height: 720, logicalSurface: 0 } };
 
 navigator.mediaDevices.getUserMedia(constraints)
   .then(function(mediaStream) {
