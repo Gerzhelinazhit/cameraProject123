@@ -22,12 +22,18 @@
   <div>
     <video  controls autoplay>
       <script src=src/js/main.js> </script>
-      <!--<source src="movie.ogg" type="video/ogg">-->
+      <source src="movie.ogg" type="video/ogg">
 
     </video>
-        </div>
-  <input type="file" accept="image/*" capture="camera">
-  <input type="file" name="image" accept="image/*" capture="environment">
+  </div>
+
+  <img src="" class="image">
+  <canvas style="display: none"></canvas>
+  <button type="button" class="screenshot-button">Take screenshot</button>
+  <script src="src/js/screenshot.js"></script>
+
+
+
   <script src="src/js/plugins.js"></script>
   <script src="src/js/main.js"></script>
 
