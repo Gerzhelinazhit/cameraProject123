@@ -19,7 +19,9 @@ function gotDevices(deviceInfos) {
     const option = document.createElement('option');
     option.value = deviceInfo.deviceId;
       if (deviceInfo.kind === 'videoinput') {
-      option.text = deviceInfo.label || `camera ${videoSelect.length + 2}`;
+      console.log(option.text = deviceInfo.label || `camera ${videoSelect.length + 2}`);
+        option.text = deviceInfo.label || `camera ${videoSelect.length + 2}`;
+
       videoSelect.appendChild(option);
     } else {
       console.log('Some other kind of source/device: ', deviceInfo);
@@ -55,6 +57,7 @@ function start() {
     });
   }
   const videoSource = videoSelect.value;
+  console.log(videoSelect.value);
   const constraints = {
     video: {deviceId: videoSource ? {exact: videoSource} : undefined}
   };
