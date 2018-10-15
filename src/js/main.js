@@ -20,8 +20,8 @@ function gotDevices(deviceInfos) {
     const option = document.createElement('option');
     option.value = deviceInfo.deviceId;
       if (deviceInfo.kind === 'videoinput' && regex.test(deviceInfo.label)|| regex1.test(deviceInfo.label)) {
-      console.log(option.text = deviceInfo.label || `camera ${videoSelect.length + 2}`);
-        option.text = deviceInfo.label || `camera ${videoSelect.length + 2}`;
+      console.log(option.text = deviceInfo.label || `camera ${videoSelect.length + 1}`);
+        option.text = deviceInfo.label || `camera ${videoSelect.length + 1}`;
 
       videoSelect.appendChild(option);
     } else {
