@@ -104,6 +104,7 @@ textarea {
   margin: 10px;
   max-width: 30%;
   max-height: 30%;
+  z-index: 1;
 }
 
 div.select {
@@ -118,10 +119,11 @@ label {
   display: inline-block;
 }
 
-.d_cube, .d_cube_help {
-  position: relative;
+.d_cube_help {
+  position: absolute;
   margin: 0;
   padding: 0;
+  z-index: 3;
 }
 
 

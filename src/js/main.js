@@ -5,7 +5,7 @@ const videoSelect = document.querySelector('select#videoSource');
 const selectors = [ videoSelect];
 const regex1 = /(back)/g;
 const regex = /(Back)/g;
-
+var counter = 0;
 
 function gotDevices(deviceInfos) {
   // Handles being called several times to update labels. Preserve values.
@@ -20,13 +20,19 @@ function gotDevices(deviceInfos) {
     const option = document.createElement('option');
     option.value = deviceInfo.deviceId;
       if (deviceInfo.kind === 'videoinput' && regex.test(deviceInfo.label)|| regex1.test(deviceInfo.label)) {
-      console.log(option.text = deviceInfo.label || `camera ${videoSelect.length + 1}`);
+      // console.log(option.text = deviceInfo.label || `camera ${videoSelect.length + 1}`);
         option.text = deviceInfo.label || `camera ${videoSelect.length + 1}`;
+        if (counter == 1) {
+          videoSelect.appendChild(option);
+        }
+        else {
+          counter+=1;
+        }
 
-      videoSelect.appendChild(option);
-    } else {
-      console.log('Some other kind of source/device: ', deviceInfo);
-    }
+
+    } // else {
+      // console.log('Some other kind of source/device: ', deviceInfo);
+    //}
   }
   selectors.forEach((select, selectorIndex) => {
     if (Array.prototype.slice.call(select.childNodes).some(n => n.value === values[selectorIndex])) {
