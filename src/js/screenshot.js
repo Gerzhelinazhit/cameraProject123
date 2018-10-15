@@ -9,8 +9,11 @@ screenshotButton.onclick = video.onclick = function() {
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   canvas.getContext('2d').drawImage(video, 0, 0);
+  canvas.id = 'screenshot_img';
+
   // Other browsers will fall back to image/png
   img.src = canvas.toDataURL('src/img');
+
 };
 
 function handleSuccess(stream) {
