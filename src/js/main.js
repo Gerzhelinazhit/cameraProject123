@@ -15,15 +15,15 @@ function gotDevices(deviceInfos) {
       select.removeChild(select.firstChild);
     }
   });
-  for (let i = 0; i !== deviceInfos.length; ++i) {
+
+  for (var i = 0; i !== deviceInfos.length; ++i) {
     const deviceInfo = deviceInfos[i];
     const option = document.createElement('option');
     option.value = deviceInfo.deviceId;
-    if ((deviceInfo.kind === 'videoinput') && (regex.test(deviceInfo.label)|| regex1.test(deviceInfo.label))) {
+    if (deviceInfo.kind === 'videoinput') { //&& (regex.test(deviceInfo.label)|| regex1.test(deviceInfo.label))
       console.log(option.text = deviceInfo.label || `camera ${videoSelect.length + 1}`);
         option.text = deviceInfo.label || `camera ${videoSelect.length + 1}`;
         videoSelect.appendChild(option);
-
     }
     // else {
       // console.log('Some other kind of source/device: ', deviceInfo);
