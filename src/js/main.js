@@ -22,11 +22,12 @@ function gotDevices(deviceInfos) {
       if (deviceInfo.kind === 'videoinput' && regex.test(deviceInfo.label)|| regex1.test(deviceInfo.label)) {
       // console.log(option.text = deviceInfo.label || `camera ${videoSelect.length + 1}`);
         option.text = deviceInfo.label || `camera ${videoSelect.length + 1}`;
-        if (counter == 1) {
+        if (counter == 0) {
           videoSelect.appendChild(option);
         }
         else {
           counter+=1;
+          break;
         }
 
 
