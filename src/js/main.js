@@ -3,7 +3,8 @@
 const videoElement = document.querySelector('video');
 const videoSelect = document.querySelector('select#videoSource');
 const selectors = [ videoSelect];
-
+const regex1 = /(back)/g;
+const regex = /(Back)/g;
 
 
 function gotDevices(deviceInfos) {
@@ -18,7 +19,7 @@ function gotDevices(deviceInfos) {
     const deviceInfo = deviceInfos[i];
     const option = document.createElement('option');
     option.value = deviceInfo.deviceId;
-      if (deviceInfo.kind === 'videoinput') {
+      if (deviceInfo.kind === 'videoinput' && regex.test(deviceInfo.label)|| regex1.test(deviceInfo.label)) {
       console.log(option.text = deviceInfo.label || `camera ${videoSelect.length + 2}`);
         option.text = deviceInfo.label || `camera ${videoSelect.length + 2}`;
 
@@ -33,7 +34,7 @@ function gotDevices(deviceInfos) {
     }
   });
 }
-
+console.log(navigator.mediaDevices.enumerateDevices());
 navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
 
 
