@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title></title>
+  <title>Panorama 360</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="mobile-web-app-capable" content="yes">
@@ -15,23 +15,17 @@
 
   <!--<link rel="stylesheet" href="css/normalize.css">-->
   <link rel="stylesheet" href="src/css/main.css">
+  <script src="three.js"></script>
 
-  <style>
-    div.select {
-      display: inline-block;
-      margin: 0 0 1em 0;
-    }
-    p.small {
-      font-size: 0.7em;
-    }
-    label {
-      width: 12em;
-      display: inline-block;
-    }
-  </style>
 </head>
 
 <body>
+  <header>
+    <span>Choose camera</span>
+    <div class="select">
+      <label for="videoSource">Video source: </label><select id="videoSource"></select>
+    </div>
+  </header>
 
   <div id="container">
     <video id="video" controls autoplay>
@@ -42,9 +36,7 @@
     <canvas style="display: none"></canvas>
     <button type="button" class="screenshot-button">Take screenshot</button>
     <script src="src/js/screenshot.js"></script>
-    <div class="select">
-      <label for="videoSource">Video source: </label><select id="videoSource"></select>
-    </div>
+
   </div>
 
 
@@ -53,6 +45,8 @@
   <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
   <script src="src/js/plugins.js"></script>
   <script src="src/js/main.js"></script>
+
+  <script src="src/js/3d_cube.js"></script>
 
 
 </body>
