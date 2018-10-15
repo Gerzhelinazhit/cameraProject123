@@ -19,21 +19,15 @@ function gotDevices(deviceInfos) {
     const deviceInfo = deviceInfos[i];
     const option = document.createElement('option');
     option.value = deviceInfo.deviceId;
-      if (deviceInfo.kind === 'videoinput' && regex.test(deviceInfo.label)|| regex1.test(deviceInfo.label)) {
+    if ((deviceInfo.kind === 'videoinput') && (regex.test(deviceInfo.label)|| regex1.test(deviceInfo.label))) {
       // console.log(option.text = deviceInfo.label || `camera ${videoSelect.length + 1}`);
         option.text = deviceInfo.label || `camera ${videoSelect.length + 1}`;
-        if (counter == 1) {
-          videoSelect.appendChild(option);
-        }
-        else {
-          counter+=1;
-          if (counter > 1){
-            break;
-          }
-        }
+        videoSelect.appendChild(option);
 
-
-    } // else {
+    }
+    else {
+        continue;
+      } // else {
       // console.log('Some other kind of source/device: ', deviceInfo);
     //}
   }
