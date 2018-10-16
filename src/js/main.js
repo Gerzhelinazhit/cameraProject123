@@ -28,7 +28,7 @@ function gotDevices(deviceInfos) {
     //}
   }
   videoSelect.forEach((select, selectorIndex) => {
-    if (Array.prototype.slice.call(select.childNodes).some(n => n.value === values[selectorIndex])) {
+    if (Array.prototype.slice.call(select.childNodes).some(n => (n.value === values[selectorIndex]) &&  n.value.label.match('back'))) {
       select.value = values[selectorIndex];
     }
   });
@@ -66,3 +66,4 @@ function start() {
 videoSelect.onchange = start;
 
 start();
+
