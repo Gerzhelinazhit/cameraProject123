@@ -1,7 +1,7 @@
 'use strict';
 
 const videoElement = document.querySelector('video');
-const videoSelect = document.querySelectorAll('select#videoSource')[1];
+const videoSelect = document.querySelectorAll('select#videoSource')[0];
 const selectors = [ videoSelect];
 
 function gotDevices(deviceInfos) {
