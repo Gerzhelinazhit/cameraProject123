@@ -1,14 +1,14 @@
 'use strict';
 
 const videoElement = document.querySelector('video');
-const videoSelect = document.querySelectorAll('select#videoSource');
-//const selectors = videoSelect;
+const videoSelect = document.querySelector('select#videoSource');
+const selectors = [ videoSelect];
 
 function gotDevices(deviceInfos) {
   // Handles being called several times to update labels. Preserve values.
-  const values = videoSelect.forEach(select => select.value); //.map();
+  const values = selectors.map(select => select.value);
 
-  videoSelect.forEach(select => {
+  selectors.forEach(select => {
     while (select.firstChild) {
       select.removeChild(select.firstChild);
     }
@@ -18,7 +18,7 @@ function gotDevices(deviceInfos) {
     const deviceInfo = deviceInfos[i];
     const option = document.createElement('option');
     option.value = deviceInfo.deviceId;
-    if (deviceInfo.kind === 'videoinput'){  //} && deviceInfo.label.match('back')) {//&& (regex.test(deviceInfo.label)|| regex1.test(deviceInfo.label))) {
+    if (deviceInfo.kind === 'videoinput' && deviceInfo.label.match('back')) {//&& (regex.test(deviceInfo.label)|| regex1.test(deviceInfo.label))) {
       console.log(option.text = deviceInfo.label || `camera ${videoSelect.length + 1}`);
         option.text = deviceInfo.label || `camera ${videoSelect.length + 1}`;
         videoSelect.appendChild(option);
@@ -27,14 +27,15 @@ function gotDevices(deviceInfos) {
       // console.log('Some other kind of source/device: ', deviceInfo);
     //}
   }
-  videoSelect.forEach((select, selectorIndex) => {
-    if (Array.prototype.slice.call(select.childNodes).some(n => n.value === values[selectorIndex])){ //} &&  n.value.label.match('back'))) {
+  selectors.forEach((select, selectorIndex) => {
+    if (Array.prototype.slice.call(select.childNodes).some(n => n.value === values[selectorIndex])) {
       select.value = values[selectorIndex];
     }
   });
 }
 console.log(navigator.mediaDevices.enumerateDevices());
-navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
+navigator.mediaDevices.enumerateDevices()
+  .then(gotDevices).catch(handleError);
 
 
 function gotStream(stream) {
@@ -66,4 +67,3 @@ function start() {
 videoSelect.onchange = start;
 
 start();
-
