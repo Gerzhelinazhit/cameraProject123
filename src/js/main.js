@@ -24,11 +24,10 @@ function gotDevices(deviceInfos) {
       videoSelect.appendChild(option);
     }
   }
-  selectors[0].value = values[0];
 
-  /*selectors.forEach((select, selectorIndex) => {
+  selectors.forEach((select, selectorIndex) => {
       select.value = values[selectorIndex];
-  });*/
+  });
 }
 console.log(navigator.mediaDevices.enumerateDevices());
 navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
