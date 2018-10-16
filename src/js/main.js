@@ -23,9 +23,6 @@ function gotDevices(deviceInfos) {
         option.text = deviceInfo.label || `camera ${videoSelect.length + 1}`;
         videoSelect.appendChild(option);
     }
-    // else {
-      // console.log('Some other kind of source/device: ', deviceInfo);
-    //}
   }
   selectors.forEach((select, selectorIndex) => {
     if (Array.prototype.slice.call(select.childNodes).some(n => n.value === values[selectorIndex])) {
@@ -33,11 +30,9 @@ function gotDevices(deviceInfos) {
     }
   });
 }
+
 console.log(navigator.mediaDevices.enumerateDevices());
 navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
-
-
-
 
 function gotStream(stream) {
   window.stream = stream; // make stream available to console
@@ -65,5 +60,5 @@ function start() {
 }
 
 videoSelect.onchange = start;
-
 start();
+
