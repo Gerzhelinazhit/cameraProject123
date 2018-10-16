@@ -92,38 +92,42 @@ textarea {
 
 *{
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
+#video, .d_cube_help{
+  position: absolute;
+  margin: 5px 0 0 5px;
+}
 .screenshot-button {
   margin: 10px;
   padding: 3px;
-  display: flex;
 }
 .image {
-  display: flex;
-  margin: 10px;
-  max-width: 30%;
-  max-height: 30%;
+  position: relative;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
   z-index: 1;
 }
 
-div.select {
-  display: inline-block;
-  margin: 0 0 1em 0;
+.select {
+  margin-top: 500px;
 }
 p.small {
   font-size: 0.7em;
 }
 label {
   width: 12em;
-  display: inline-block;
 }
 
 .d_cube_help {
-  position: absolute;
-  margin: 0;
-  padding: 0;
   z-index: 3;
+}
+#container {
+  flex-direction: column;
 }
 
 

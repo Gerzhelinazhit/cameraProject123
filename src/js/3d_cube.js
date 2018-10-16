@@ -1,7 +1,6 @@
 // size of cube window
-
-var window_width = window.innerWidth*0.3;
-var window_height = window.innerHeight*0.3;
+var window_width = 640;
+var window_height = 480;
 
 var scene = new THREE.Scene();
 // scene.background = new THREE.Color( 0xffffff );
