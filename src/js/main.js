@@ -1,14 +1,14 @@
 'use strict';
 
 const videoElement = document.querySelector('video');
-const videoSelect = document.querySelectorAll('select#videoSource')[0];
-const selectors = [ videoSelect];
+const videoSelect = document.querySelectorAll('select#videoSource');
+//const selectors = videoSelect;
 
 function gotDevices(deviceInfos) {
   // Handles being called several times to update labels. Preserve values.
-  const values = selectors.map(select => select.value);
+  const values = videoSelect.forEach(select => select.value); //.map();
 
-  selectors.forEach(select => {
+  videoSelect.forEach(select => {
     while (select.firstChild) {
       select.removeChild(select.firstChild);
     }
@@ -27,7 +27,7 @@ function gotDevices(deviceInfos) {
       // console.log('Some other kind of source/device: ', deviceInfo);
     //}
   }
-  selectors.forEach((select, selectorIndex) => {
+  videoSelect.forEach((select, selectorIndex) => {
     if (Array.prototype.slice.call(select.childNodes).some(n => n.value === values[selectorIndex])) {
       select.value = values[selectorIndex];
     }
