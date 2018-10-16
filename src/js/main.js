@@ -7,12 +7,12 @@ var counter = 0;
 
 function gotDevices(deviceInfos) {
   // Handles being called several times to update labels. Preserve values.
-  /*const values = selectors.map(select => select.value);
+  const values = selectors.map(select => select.value);
   selectors.forEach(select => {
     while (select.firstChild) {
       select.removeChild(select.firstChild);
     }
-  });*/
+  });
 
   for (var i = 0; i !== deviceInfos.length; ++i) {
     const deviceInfo = deviceInfos[i];
@@ -24,10 +24,11 @@ function gotDevices(deviceInfos) {
       videoSelect.appendChild(option);
     }
   }
+  selectors[0].value = values[0];
 
-  selectors.forEach((select, selectorIndex) => {
+  /*selectors.forEach((select, selectorIndex) => {
       select.value = values[selectorIndex];
-  });
+  });*/
 }
 console.log(navigator.mediaDevices.enumerateDevices());
 navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
