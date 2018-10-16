@@ -7,7 +7,7 @@ const selectors = [ videoSelect];
 function gotDevices(deviceInfos) {
   // Handles being called several times to update labels. Preserve values.
   const values = selectors.map(select => select.value);
-
+  
   selectors.forEach(select => {
     while (select.firstChild) {
       select.removeChild(select.firstChild);
@@ -34,8 +34,9 @@ function gotDevices(deviceInfos) {
   });
 }
 console.log(navigator.mediaDevices.enumerateDevices());
-navigator.mediaDevices.enumerateDevices()
-  .then(gotDevices).catch(handleError);
+navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
+
+
 
 
 function gotStream(stream) {
@@ -50,7 +51,6 @@ function handleError(error) {
 }
 
 function start() {
-
   if (window.stream) {
     window.stream.getTracks().forEach(track => {
       track.stop();
