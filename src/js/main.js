@@ -1,7 +1,7 @@
 'use strict';
 
 const videoElement = document.querySelector('video');
-const videoSelect = document.querySelector('select#videoSource');
+const videoSelect = document.querySelectorAll('select#videoSource')[1];
 const selectors = [ videoSelect];
 
 function gotDevices(deviceInfos) {
@@ -34,19 +34,7 @@ function gotDevices(deviceInfos) {
   });
 }
 console.log(navigator.mediaDevices.enumerateDevices());
-navigator.mediaDevices.enumerateDevices()
-  .then(function(devices) {
-    var devices_new = [];
-    devices.forEach(function(device) {
-      console.log(device.kind + ": " + device.label +
-        " id = " + device.deviceId);
-      if(device.kind === 'videoinput' && deviceInfo.label.match('back')){
-        devices_new+= device;
-      }
-    });
-    return devices_new;
-  })
-  .then(gotDevices).catch(handleError);
+navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
 
 
 function gotStream(stream) {
