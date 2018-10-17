@@ -21,7 +21,7 @@ function init() {
  var geometry = new THREE.BoxBufferGeometry(2,2,2,2,2,2); // cube size, amount in 3 dim
   //geometry.scale( - 1, 1, 1 );
  //create a material color or image texture
- var material = new THREE.MeshBasicMaterial({color: 0x000000, wireframe: true});
+ var material = new THREE.MeshBasicMaterial({color: 0x00FFFF, wireframe: true});
  cube = new THREE.Mesh(geometry,material);
  scene.add(cube);
 
