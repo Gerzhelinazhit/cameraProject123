@@ -2,6 +2,7 @@
 var window_width = window.innerWidth;
 var window_height = window.innerHeight;//* camera height/camera width
 
+
 init();
 animate();
 //update();
@@ -17,12 +18,12 @@ function init() {
   container = document.querySelector("#container");
 
 // create the shape
-  var geometry = new THREE.BoxGeometry(3,2,3); // cube size, amount in 3 dim
-
-//create a material color or image texture
-  var material = new THREE.MeshBasicMaterial({color: 0x00FFFF, opacity:10, wireframe: true});
-  cube = new THREE.Mesh(geometry,material);
-  scene.add(cube);
+ var geometry = new THREE.BoxBufferGeometry(2,2,2,2,2,2); // cube size, amount in 3 dim
+  //geometry.scale( - 1, 1, 1 );
+ //create a material color or image texture
+ var material = new THREE.MeshBasicMaterial({color: 0x00FFFF, opacity:10, wireframe: true});
+ cube = new THREE.Mesh(geometry,material);
+ scene.add(cube);
 
   var geometry = new THREE.SphereBufferGeometry( 500, 60, 40 );
   // invert the geometry on the x-axis so that all of the faces point inward
@@ -35,9 +36,9 @@ function init() {
   var mesh = new THREE.Mesh( geometry, material );
   scene.add( mesh );
 
- var helperGeometry = new THREE.BoxBufferGeometry( 100, 100, 100, 4, 4, 4 );
+ var helperGeometry = new THREE.BoxBufferGeometry( 1, 1, 1, 4, 4, 4 );
  var texture = THREE.TextureLoader('.image');
- helperMaterial = new THREE.MeshBasicMaterial({map: texture});
+ var helperMaterial = new THREE.MeshBasicMaterial({map: texture});
  var helper = new THREE.Mesh( helperGeometry, helperMaterial );
  scene.add( helper );
 
