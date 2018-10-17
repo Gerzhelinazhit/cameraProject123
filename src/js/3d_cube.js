@@ -4,21 +4,6 @@ var window_height = window.innerHeight;//* camera height/camera width
 
 
 
-// logic
-var update = function () {
-
-  //cube.rotation.y += 0.003;
-  window.addEventListener('deviceorientation', function(e) {
-    var alphaRotation = e.alpha ? e.alpha * (Math.PI / 600) : 0;
-    cube.rotation.x = alphaRotation;
-    var betaRotation = e.beta ? e.beta * (Math.PI / 600) : 0;
-    cube.rotation.y = betaRotation;
-    var gammaRotation = e.gamma ? e.gamma * (Math.PI / 600) : 0;
-    cube.rotation.y = gammaRotation;
-
-  });
-
-};
 /*
 //draw scene
 var render = function () {
@@ -36,10 +21,6 @@ var GameLoop = function () {
 */
 
 var camera, scene, renderer, controls;
-
-init();
-animate();
-
 
 function init() {
   camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 1100 );
@@ -83,6 +64,18 @@ function init() {
   window.addEventListener( 'resize', onWindowResize, false );
 }
 
+// logic
+var update = function () {
+  window.addEventListener('deviceorientation', function(e) {
+    var alphaRotation = e.alpha ? e.alpha * (Math.PI / 600) : 0;
+    cube.rotation.x = alphaRotation;
+    var betaRotation = e.beta ? e.beta * (Math.PI / 600) : 0;
+    cube.rotation.y = betaRotation;
+    var gammaRotation = e.gamma ? e.gamma * (Math.PI / 600) : 0;
+    cube.rotation.y = gammaRotation;
+
+  });
+};
 function animate() {
 
   window.requestAnimationFrame( animate );
@@ -102,6 +95,12 @@ function onWindowResize() {
   renderer.setSize( window_width, window_height );
 
 }
+
+
+init();
+animate();
+
+
 //GameLoop();
 
 //init();
