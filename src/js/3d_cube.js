@@ -2,28 +2,11 @@
 var window_width = window.innerWidth;
 var window_height = window.innerHeight;//* camera height/camera width
 
-
-
-/*
-//draw scene
-var render = function () {
-  renderer.render(scene, camera);
-  renderer.setPixelRatio( window.devicePixelRatio );
-  renderer.setSize( window_width, window_height );
-};
-
-//run loop (update, render, repeat)
-var GameLoop = function () {
-  requestAnimationFrame( GameLoop );
-  update();
-  render();
-};
-*/
 init();
 animate();
 update();
 
-var camera, scene, renderer;
+var camera, scene, renderer, cube;
 
 function init() {
   camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 1100 );
@@ -36,7 +19,7 @@ function init() {
 
 //create a material color or image texture
   var material = new THREE.MeshBasicMaterial({color: 0x00FFFF, opacity:10, wireframe: true});
-  var cube = new THREE.Mesh(geometry,material);
+  cube = new THREE.Mesh(geometry,material);
   scene.add(cube);
 
   var geometry = new THREE.SphereBufferGeometry( 500, 60, 40 );
@@ -63,6 +46,7 @@ function init() {
   container.appendChild( renderer.domElement );
   window.addEventListener( 'resize', onWindowResize, false );
 }
+
 
 // logic
 function update() {
