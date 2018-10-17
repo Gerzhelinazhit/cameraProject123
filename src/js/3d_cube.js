@@ -4,13 +4,15 @@ var window_height = window.innerHeight;//* camera height/camera width
 
 init();
 animate();
-update();
+//update();
 
 var camera, scene, renderer, cube;
 
 function init() {
-  camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 1100 );
-  console.log("3d camera fov is",camera.fov);
+  camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );
+  //camera.position.z = 250;
+    console.log("3d camera fov is",camera.fov);
+  controls = new THREE.DeviceOrientationControls( camera );
   scene = new THREE.Scene();
   container = document.querySelector("#container");
 
@@ -47,7 +49,7 @@ function init() {
   window.addEventListener( 'resize', onWindowResize, false );
 }
 
-
+/*
 // logic
 function update() {
   window.addEventListener('deviceorientation', function(e) {
@@ -60,10 +62,12 @@ function update() {
 
   });
 };
+*/
 
 function animate() {
 
   window.requestAnimationFrame( animate );
+  controls.update();
   //var distance_z = parseInt(toString(window_height/2 / Math.tan(camera.fov/2)));
   //camera.position.z = distance_z;
   renderer.render( scene, camera );
