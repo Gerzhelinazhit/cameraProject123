@@ -20,7 +20,7 @@ var GameLoop = function () {
 };
 */
 
-var camera, scene, renderer, controls;
+var camera, scene, renderer, cube;
 
 function init() {
   camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 1100 );
@@ -36,7 +36,7 @@ function init() {
 
 //create a material color or image texture
   var material = new THREE.MeshBasicMaterial({color: 0x00FFFF, opacity:10, wireframe: true});
-  var cube = new THREE.Mesh(geometry,material);
+  cube = new THREE.Mesh(geometry,material);
   scene.add(cube);
 
   var geometry = new THREE.SphereBufferGeometry( 500, 60, 40 );
