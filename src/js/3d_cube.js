@@ -87,6 +87,7 @@ function animate() {
 
   window.requestAnimationFrame( animate );
   //controls.update();
+  update();
 
   var distance_z = parseInt(toString(window_height/2 / Math.tan(camera.fov/2)));
   //camera.position.z = distance_z;
