@@ -10,9 +10,10 @@ animate();
 var camera, scene, renderer, cube;
 
 function init() {
-  camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );
-  //camera.position.z = 250;
+  camera = new THREE.PerspectiveCamera( 95, window.innerWidth / window.innerHeight, 1, 1000 );
+  camera.position.z = 0;
     console.log("3d camera fov is",camera.fov);
+    console.log("3d camera position z", camera.position.z);
   controls = new THREE.DeviceOrientationControls( camera );
   scene = new THREE.Scene();
   container = document.querySelector("#container");
@@ -25,22 +26,13 @@ function init() {
  cube = new THREE.Mesh(geometry,material);
  scene.add(cube);
 
-  var geometry = new THREE.SphereBufferGeometry( 500, 60, 40 );
+  //var geometry = new THREE.SphereBufferGeometry( 500, 60, 40 );
   // invert the geometry on the x-axis so that all of the faces point inward
-  geometry.scale( - 1, 1, 1 );
+  //geometry.scale( - 1, 1, 1 );
+ // var material = new THREE.MeshBasicMaterial( { color: 0xff00ff, wireframe: true } );
+ // var mesh = new THREE.Mesh( geometry, material );
+ // scene.add( mesh );
 
- var material = new THREE.MeshBasicMaterial( {
-    map: new THREE.TextureLoader().load( '' )
-  } );
-
-  var mesh = new THREE.Mesh( geometry, material );
-  scene.add( mesh );
-
- var helperGeometry = new THREE.BoxBufferGeometry( 1, 1, 1, 4, 4, 4 );
- var texture = THREE.TextureLoader('.image');
- var helperMaterial = new THREE.MeshBasicMaterial({map: texture});
- var helper = new THREE.Mesh( helperGeometry, helperMaterial );
- scene.add( helper );
 
   renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
   renderer.setPixelRatio( window.devicePixelRatio );
@@ -50,27 +42,12 @@ function init() {
   window.addEventListener( 'resize', onWindowResize, false );
 }
 
-/*
-// logic
-function update() {
-  window.addEventListener('deviceorientation', function(e) {
-    var alphaRotation = e.alpha ? e.alpha * (Math.PI / 600) : 0;
-    cube.rotation.x = alphaRotation;
-    var betaRotation = e.beta ? e.beta * (Math.PI / 600) : 0;
-    cube.rotation.z = betaRotation;
-    var gammaRotation = e.gamma ? e.gamma * (Math.PI / 600) : 0;
-    cube.rotation.y = gammaRotation;
-
-  });
-};
-*/
-
 function animate() {
 
   window.requestAnimationFrame( animate );
   controls.update();
   //var distance_z = parseInt(toString(window_height/2 / Math.tan(camera.fov/2)));
-  //camera.position.z = distance_z;
+
   renderer.render( scene, camera );
 
 }
