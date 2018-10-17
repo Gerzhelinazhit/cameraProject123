@@ -19,24 +19,24 @@ var GameLoop = function () {
   render();
 };
 */
+init();
+animate();
+update();
 
-var camera, scene, renderer, cube;
+var camera, scene, renderer;
 
 function init() {
   camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 1100 );
   console.log("3d camera fov is",camera.fov);
   scene = new THREE.Scene();
-  //var controls = new THREE.DeviceOrientationControls( camera );
-
   container = document.querySelector("#container");
-  //renderer.domElement.className = 'd_cube';
 
 // create the shape
   var geometry = new THREE.BoxGeometry(3,2,3); // cube size, amount in 3 dim
 
 //create a material color or image texture
   var material = new THREE.MeshBasicMaterial({color: 0x00FFFF, opacity:10, wireframe: true});
-  cube = new THREE.Mesh(geometry,material);
+  var cube = new THREE.Mesh(geometry,material);
   scene.add(cube);
 
   var geometry = new THREE.SphereBufferGeometry( 500, 60, 40 );
@@ -65,24 +65,22 @@ function init() {
 }
 
 // logic
-var update = function () {
+function update() {
   window.addEventListener('deviceorientation', function(e) {
     var alphaRotation = e.alpha ? e.alpha * (Math.PI / 600) : 0;
     cube.rotation.x = alphaRotation;
     var betaRotation = e.beta ? e.beta * (Math.PI / 600) : 0;
-    cube.rotation.y = betaRotation;
+    cube.rotation.z = betaRotation;
     var gammaRotation = e.gamma ? e.gamma * (Math.PI / 600) : 0;
     cube.rotation.y = gammaRotation;
 
   });
 };
+
 function animate() {
 
   window.requestAnimationFrame( animate );
-  //controls.update();
-  update();
-
-  var distance_z = parseInt(toString(window_height/2 / Math.tan(camera.fov/2)));
+  //var distance_z = parseInt(toString(window_height/2 / Math.tan(camera.fov/2)));
   //camera.position.z = distance_z;
   renderer.render( scene, camera );
 
@@ -96,15 +94,6 @@ function onWindowResize() {
 
 }
 
-
-init();
-animate();
-
-
-//GameLoop();
-
-//init();
-//animate();
 
 
 
