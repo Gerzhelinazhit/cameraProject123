@@ -48,7 +48,8 @@ var GameLoop = function () {
 };
 
 function init() {
-  camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1100 );
+  camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 1100 );
+  console.log("3d camera fov is",camera.fov)
 
   var geometry = new THREE.SphereBufferGeometry( 500, 60, 40 );
   // invert the geometry on the x-axis so that all of the faces point inward
