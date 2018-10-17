@@ -100,7 +100,7 @@ textarea {
 body {
   width:100%;
   height:100%;
-
+  justify-content: center;
 }
 
 #video{
@@ -111,10 +111,13 @@ body {
 }
 .d_cube_help {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  margin: 0;
+  width: 90%;
+  height: 90%;
+  /* margin: 0; */
   z-index: 3;
+  font-family:Monospace;
+  font-size:13px;
+  font-weight: bold;
 }
 
 .screenshot-button {
