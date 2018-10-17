@@ -1,11 +1,5 @@
-// size of cube window
-var window_width = window.innerWidth;
-var window_height = window.innerHeight;//* camera height/camera width
-
-
 init();
 animate();
-//update();
 
 var camera, scene, renderer, cube;
 
@@ -36,7 +30,7 @@ function init() {
 
   renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
   renderer.setPixelRatio( window.devicePixelRatio );
-  renderer.setSize( window_width, window_height );
+  renderer.setSize( window.innerWidth, window.innerHeight );
   renderer.domElement.className = 'd_cube_help';
   container.appendChild( renderer.domElement );
   window.addEventListener( 'resize', onWindowResize, false );
@@ -46,17 +40,15 @@ function animate() {
 
   window.requestAnimationFrame( animate );
   controls.update();
-  //var distance_z = parseInt(toString(window_height/2 / Math.tan(camera.fov/2)));
-
   renderer.render( scene, camera );
 
 }
 
 function onWindowResize() {
 
-  camera.aspect = window_width / window_height;
+  camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize( window_width, window_height );
+  renderer.setSize( window.innerWidth, window.innerHeight );
 
 }
 
