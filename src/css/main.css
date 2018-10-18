@@ -129,8 +129,11 @@ body {
   margin-top: 3%;
   margin-left: 10px;
   margin-bottom: 20px;
-  width: fit-content;
+  /*width: fit-content;*/
   z-index: 1;
+  width: 150px;
+  height: 150px;
+  display: inline-block;
 }
 
 .select {
@@ -152,6 +155,12 @@ label {
   flex-direction: column;
   width: 100%;
   height: 100%;
+}
+
+#image-container{
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
 }
 
 

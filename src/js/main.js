@@ -14,7 +14,7 @@ function gotDevices(deviceInfos) {
     }
   });
 
-  for (var i = 0; i !== deviceInfos.length; ++i) {
+  for (let i = 0; i !== deviceInfos.length; ++i) {
     const deviceInfo = deviceInfos[i];
     const option = document.createElement('option');
     option.value = deviceInfo.deviceId;
@@ -47,6 +47,7 @@ function handleError(error) {
 
 function start() {
   if (window.stream) {
+    console.log(window.stream.getTracks());
     window.stream.getTracks().forEach(track => {
       track.stop();
     });
