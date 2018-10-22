@@ -58,8 +58,10 @@ function start() {
     video: { deviceId: videoSource ? {exact: videoSource} : undefined}
   };
   navigator.mediaDevices.getUserMedia(constraints).then(gotStream).then(gotDevices).catch(handleError);
+
 }
 
-videoSelect.onchange = start;
+//videoSelect.onchange = start;
 start();
+
 
