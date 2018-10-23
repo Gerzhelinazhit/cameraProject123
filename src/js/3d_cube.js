@@ -91,13 +91,14 @@ function onWindowResize() {
 function setOrientationControls(e) {
   console.log("mobile orientation test");
   if (!e.alpha) {
+    console.log("ho hyroscope")
     return;
   }
   controls = new THREE.DeviceOrientationControls(camera, true);
   controls.connect();
   controls.update();
 
-  window.removeEventListener('deviceorientation', setOrientationControls, true);
+  //window.removeEventListener('deviceorientation', setOrientationControls, true);
   console.log("mobile orientation");
 }
 
