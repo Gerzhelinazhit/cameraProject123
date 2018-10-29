@@ -7,6 +7,7 @@ var camera, scene, renderer, line, controls;
 
 function init() {
   camera = new THREE.PerspectiveCamera( 60, window.innerWidth/window.innerHeight, 1, 1500 );
+  camera.position.z = 10;
 
  // controls = new THREE.DeviceOrientationControls(camera);
   scene = new THREE.Scene();
@@ -67,6 +68,7 @@ function init() {
 function animate() {
   requestAnimationFrame( animate );
   //controls.update();
+
   renderer.render( scene, camera );
 }
 

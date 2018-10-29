@@ -29,9 +29,16 @@ function gotDevices(deviceInfos) {
       select.value = values[selectorIndex];
     }
   });
+  // Try to select second element from choose-list as default.
+  if (videoSelect.children[1]) {
+    videoSelect.children[1].selected = true;
+  }
+
 }
 
-console.log(navigator.mediaDevices.enumerateDevices());
+console.log("Media devices promise: ", navigator.mediaDevices.enumerateDevices());
+console.log("Media devices promise 2: ", navigator.mediaDevices.enumerateDevices().then(gotDevices));
+
 navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
 
 function gotStream(stream) {
@@ -54,6 +61,7 @@ function start() {
   }
   const videoSource = videoSelect.value;
   console.log(videoSelect.value);
+
   const constraints = {
     video: { deviceId: videoSource ? {exact: videoSource} : undefined}
   };
@@ -61,7 +69,6 @@ function start() {
 
 }
 
-//videoSelect.onchange = start;
 start();
 
 

@@ -111,8 +111,8 @@ body {
 }
 .d_cube_help {
   position: absolute;
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   /* margin: 0; */
   z-index: 3;
   font-family:Monospace;
@@ -171,6 +171,40 @@ label {
   /* height: 100%; */
   position: absolute;
   z-index: 11;
+}
+
+/*
+ * Set landscape orientation as default
+ */
+@media screen and (orientation:portrait) {
+  body {
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+  }
+}
+
+/*
+  hyroscope elements
+ */
+.horizontal_hyroscope {
+  position: absolute;
+  margin: 10px 0 0 5%;
+  align-self: center;
+  height: 10px;
+  width: 90%;
+  z-index: 20;
+  background: linear-gradient(to right, red, orange,yellow,yellowgreen,green,yellowgreen,yellow,orange,red);
+}
+
+.vertical_hyroscope {
+  position: absolute;
+  justify-content: center;
+  margin: 5% 0 0 95%;
+  height: 90%;
+  width: 10px;
+  z-index: 20;
+  background: linear-gradient(red, orange,yellow,yellowgreen,green,yellowgreen,yellow,orange,red);
+
 }
 
 

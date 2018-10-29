@@ -16,7 +16,7 @@ function init() {
  var geometry = new THREE.BoxBufferGeometry( 3, 3, 3 );
  var material = new THREE.MeshBasicMaterial({color: 0x00FFFF, wireframe: true});
  cube = new THREE.Mesh(geometry,material);
- scene.add(cube);
+ //scene.add(cube);
 
 
   var material2 = new THREE.MeshBasicMaterial( { color: 0x0000ff} );
@@ -38,7 +38,7 @@ function init() {
   hexahedron.vertices.push(new THREE.Vector3(3,1.5,0));
   hexahedron.vertices.push(new THREE.Vector3(1.5,1.5,-hex_height));
   hexahedron.vertices.push(new THREE.Vector3(1.5,-1.5,-hex_height));
-  hexahedron.vertices.push(new THREE.Vector3(3,-1.5,0)); //plane 3
+  hexahedron.vertices.push(new THREE.Vector3(3,-1.5,0));            //plane 3
 
   hexahedron.vertices.push(new THREE.Vector3(1.5,-1.5,-hex_height));
   hexahedron.vertices.push(new THREE.Vector3(1.5,1.5,-hex_height));
@@ -62,7 +62,6 @@ function init() {
 
   scene.add(line);
 
-
   renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
   renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( window.innerWidth, window.innerHeight );
@@ -82,16 +81,16 @@ function animate() {
 
 function onWindowResize() {
 
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize( window.innerWidth, window.innerHeight );
+  //camera.aspect = window.innerWidth / window.innerHeight;
+  //camera.updateProjectionMatrix();
+  //renderer.setSize( window.innerWidth, window.innerHeight );
 
 }
 
 function setOrientationControls(e) {
   console.log("mobile orientation test");
   if (!e.alpha) {
-    console.log("ho hyroscope")
+    console.log("ho hyroscope");
     return;
   }
   controls = new THREE.DeviceOrientationControls(camera, true);
