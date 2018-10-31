@@ -144,7 +144,11 @@ body {
 .select {
   margin-top: 70%;
   height: 30px;
+  height: 10px;
   z-index: 30;
+}
+#videoSource {
+  height: 10px;
 }
 
 #container {
@@ -177,7 +181,7 @@ body {
 .horizontal_hyroscope {
   /* align-items: start; */
   position: absolute;
-  margin: -60% 6% 0 4%;
+  margin: -35% 6% 0 4%;
   padding-bottom: 0px;
   align-self: center;
   /* justify-content: start; */
