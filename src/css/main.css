@@ -125,7 +125,7 @@ body {
   padding: 3px;
   width: 100%;
   /* height: 100%; */
-  /*visibility: hidden;*/
+  visibility: hidden;
   z-index: 50;
 }
 
@@ -142,16 +142,9 @@ body {
 }
 
 .select {
-  margin-top: 120%;
+  margin-top: 70%;
+  height: 30px;
   z-index: 30;
-}
-
-p.small {
-  font-size: 0.7em;
-}
-
-label {
-  width: 12em;
 }
 
 #container {
@@ -203,7 +196,6 @@ label {
   z-index: 20;
   background: linear-gradient(red, orange,yellow,yellowgreen,green,yellowgreen,yellow,orange,red);
 }
-
 
 
 /* ==========================================================================
