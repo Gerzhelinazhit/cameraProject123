@@ -5,10 +5,10 @@ video = document.querySelector('video');
 
 canvas = document.createElement('canvas');
 
-screenshotButton.onclick = video.onclick = function() {
+screenshotButton.onclick = function() {
   childCount();
-  canvas.width = window.innerWidth;//video.videoWidth;
-  canvas.height = window.innerHeight;//video.videoHeight;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
   canvas.getContext('2d').drawImage(video, 0, 0);
   canvas.id = 'screenshot_img';
  // img = document.createElement('img');
@@ -31,6 +31,6 @@ function childCount(){
   // let count = document.getElementById('image-container').childElementCount;
   // return count;
   if(document.getElementById('image-container').childElementCount > 5){
-    document.getElementById('image-container').removeChild(document.getElementsByTagName('img')[0]);
+    document.getElementById('image-container').removeChild(document.getElementsByTagName('img')[6]);
   }
 }

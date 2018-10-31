@@ -1,4 +1,4 @@
-label_need = document.querySelector('.device_orientation');
+//label_need = document.querySelector('.device_orientation');
 var alph, bet, gam;
 window.addEventListener('deviceorientation', function(event) {
   //console.log(event.alpha + ' : ' + event.beta + ' : ' + event.gamma);
@@ -12,4 +12,4 @@ function getAlpha() {
   return alph;
 }
 
-label_need.textContent = "aaaaaaaaaaaa"+getAlpha();
+//label_need.textContent = "aaaaaaaaaaaa"+getAlpha();
