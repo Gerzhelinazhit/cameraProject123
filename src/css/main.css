@@ -178,10 +178,12 @@ label {
   hyroscope elements
  */
 .horizontal_hyroscope {
+  /* align-items: start; */
   position: absolute;
-  margin: 0 6% 10px 4%;
+  margin: -60% 6% 0 4%;
   padding-bottom: 0px;
   align-self: center;
+  /* justify-content: start; */
   height: 10px;
   width: 90%;
   z-index: 20;
