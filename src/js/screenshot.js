@@ -1,4 +1,4 @@
-captureVideoButton =
+//captureVideoButton =
 screenshotButton = document.querySelector('.screenshot-button');
 //img = document.querySelector('.image');
 video = document.querySelector('video');
