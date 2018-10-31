@@ -1,11 +1,11 @@
 //captureVideoButton =
-screenshotButton = document.querySelector('.screenshot-button');
+screenshotButton = document.querySelector('.d_cube_help');
 //img = document.querySelector('.image');
 video = document.querySelector('video');
 
 canvas = document.createElement('canvas');
 
-video.onclick = function() {
+screenshotButton.onclick = function() {
   childCount();
   canvas.width = window.innerWidth;//video.videoWidth;
   canvas.height = window.innerHeight;//video.videoHeight;
