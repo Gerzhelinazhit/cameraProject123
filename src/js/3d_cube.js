@@ -9,7 +9,7 @@ function init() {
   camera.position.z = 0;
     console.log("3d camera fov is",camera.fov);
     console.log("3d camera position z", camera.position.z);
-  //controls = new THREE.DeviceOrientationControls( camera );
+  controls = new THREE.DeviceOrientationControls( camera );
   scene = new THREE.Scene();
   container = document.querySelector(".video_container");
 
@@ -74,7 +74,7 @@ function init() {
 function animate() {
 
   window.requestAnimationFrame( animate );
-  //controls.update();
+  controls.update();
   renderer.render( scene, camera );
 
 }
