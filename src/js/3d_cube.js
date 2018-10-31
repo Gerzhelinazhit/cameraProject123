@@ -68,7 +68,7 @@ function init() {
   renderer.domElement.className = 'd_cube_help';
   container.appendChild( renderer.domElement );
   window.addEventListener( 'resize', onWindowResize, false );
-  window.addEventListener('deviceorientation', setOrientationControls, true);
+  //window.addEventListener('deviceorientation', setOrientationControls, true);
 }
 
 function animate() {
