@@ -16,51 +16,51 @@ function init() {
  var geometry = new THREE.BoxBufferGeometry( 3, 3, 3 );
  var material = new THREE.MeshBasicMaterial({color: 0x00FFFF, wireframe: true});
  cube = new THREE.Mesh(geometry,material);
- //scene.add(cube);
+ scene.add(cube);
 
 
-  var material2 = new THREE.MeshBasicMaterial( { color: 0x0000ff} );
-
-  hexahedron = new THREE.Geometry();
-  hexahedron.vertices.push(new THREE.Vector3(-1.5,-1.5,hex_height));
-  hexahedron.vertices.push(new THREE.Vector3(-1.5,1.5,hex_height));
-  hexahedron.vertices.push(new THREE.Vector3(1.5,1.5,hex_height));
-  hexahedron.vertices.push(new THREE.Vector3(1.5,-1.5,hex_height));
-  hexahedron.vertices.push(new THREE.Vector3(-1.5,-1.5,hex_height)); //main plane (then rotation right)
-
-  hexahedron.vertices.push(new THREE.Vector3(1.5,-1.5,hex_height));
-  hexahedron.vertices.push(new THREE.Vector3(1.5,1.5,hex_height));
-  hexahedron.vertices.push(new THREE.Vector3(3,1.5,0));
-  hexahedron.vertices.push(new THREE.Vector3(3,-1.5,0));
-  hexahedron.vertices.push(new THREE.Vector3(1.5,-1.5,hex_height)); // plane 2
-
-  hexahedron.vertices.push(new THREE.Vector3(3,-1.5,0));
-  hexahedron.vertices.push(new THREE.Vector3(3,1.5,0));
-  hexahedron.vertices.push(new THREE.Vector3(1.5,1.5,-hex_height));
-  hexahedron.vertices.push(new THREE.Vector3(1.5,-1.5,-hex_height));
-  hexahedron.vertices.push(new THREE.Vector3(3,-1.5,0));            //plane 3
-
-  hexahedron.vertices.push(new THREE.Vector3(1.5,-1.5,-hex_height));
-  hexahedron.vertices.push(new THREE.Vector3(1.5,1.5,-hex_height));
-  hexahedron.vertices.push(new THREE.Vector3(-1.5,1.5,-hex_height));
-  hexahedron.vertices.push(new THREE.Vector3(-1.5,-1.5,-hex_height));
-  hexahedron.vertices.push(new THREE.Vector3(1.5,-1.5,-hex_height)); //plane 4
-
-  hexahedron.vertices.push(new THREE.Vector3(-1.5,-1.5,-hex_height));
-  hexahedron.vertices.push(new THREE.Vector3(-1.5,1.5,-hex_height));
-  hexahedron.vertices.push(new THREE.Vector3(-3,1.5,0));
-  hexahedron.vertices.push(new THREE.Vector3(-3,-1.5,0));
-  hexahedron.vertices.push(new THREE.Vector3(-1.5,-1.5,-hex_height)); // plane 5
-
-  hexahedron.vertices.push(new THREE.Vector3(-3,-1.5,0));
-  hexahedron.vertices.push(new THREE.Vector3(-3,1.5,0));
-  hexahedron.vertices.push(new THREE.Vector3(-1.5,1.5,hex_height));
-  hexahedron.vertices.push(new THREE.Vector3(-1.5,-1.5,hex_height));
-  hexahedron.vertices.push(new THREE.Vector3(-3,-1.5,0));
-
-  line = new THREE.Line( hexahedron, material2 );
-
-  scene.add(line);
+  // var material2 = new THREE.MeshBasicMaterial( { color: 0x0000ff} );
+  //
+  // hexahedron = new THREE.Geometry();
+  // hexahedron.vertices.push(new THREE.Vector3(-1.5,-1.5,hex_height));
+  // hexahedron.vertices.push(new THREE.Vector3(-1.5,1.5,hex_height));
+  // hexahedron.vertices.push(new THREE.Vector3(1.5,1.5,hex_height));
+  // hexahedron.vertices.push(new THREE.Vector3(1.5,-1.5,hex_height));
+  // hexahedron.vertices.push(new THREE.Vector3(-1.5,-1.5,hex_height)); //main plane (then rotation right)
+  //
+  // hexahedron.vertices.push(new THREE.Vector3(1.5,-1.5,hex_height));
+  // hexahedron.vertices.push(new THREE.Vector3(1.5,1.5,hex_height));
+  // hexahedron.vertices.push(new THREE.Vector3(3,1.5,0));
+  // hexahedron.vertices.push(new THREE.Vector3(3,-1.5,0));
+  // hexahedron.vertices.push(new THREE.Vector3(1.5,-1.5,hex_height)); // plane 2
+  //
+  // hexahedron.vertices.push(new THREE.Vector3(3,-1.5,0));
+  // hexahedron.vertices.push(new THREE.Vector3(3,1.5,0));
+  // hexahedron.vertices.push(new THREE.Vector3(1.5,1.5,-hex_height));
+  // hexahedron.vertices.push(new THREE.Vector3(1.5,-1.5,-hex_height));
+  // hexahedron.vertices.push(new THREE.Vector3(3,-1.5,0));            //plane 3
+  //
+  // hexahedron.vertices.push(new THREE.Vector3(1.5,-1.5,-hex_height));
+  // hexahedron.vertices.push(new THREE.Vector3(1.5,1.5,-hex_height));
+  // hexahedron.vertices.push(new THREE.Vector3(-1.5,1.5,-hex_height));
+  // hexahedron.vertices.push(new THREE.Vector3(-1.5,-1.5,-hex_height));
+  // hexahedron.vertices.push(new THREE.Vector3(1.5,-1.5,-hex_height)); //plane 4
+  //
+  // hexahedron.vertices.push(new THREE.Vector3(-1.5,-1.5,-hex_height));
+  // hexahedron.vertices.push(new THREE.Vector3(-1.5,1.5,-hex_height));
+  // hexahedron.vertices.push(new THREE.Vector3(-3,1.5,0));
+  // hexahedron.vertices.push(new THREE.Vector3(-3,-1.5,0));
+  // hexahedron.vertices.push(new THREE.Vector3(-1.5,-1.5,-hex_height)); // plane 5
+  //
+  // hexahedron.vertices.push(new THREE.Vector3(-3,-1.5,0));
+  // hexahedron.vertices.push(new THREE.Vector3(-3,1.5,0));
+  // hexahedron.vertices.push(new THREE.Vector3(-1.5,1.5,hex_height));
+  // hexahedron.vertices.push(new THREE.Vector3(-1.5,-1.5,hex_height));
+  // hexahedron.vertices.push(new THREE.Vector3(-3,-1.5,0));
+  //
+  // line = new THREE.Line( hexahedron, material2 );
+  //
+  // scene.add(line);
 
   renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
   renderer.setPixelRatio( window.devicePixelRatio );
