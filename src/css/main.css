@@ -179,7 +179,7 @@ select#videoSource {
 .horizontal_hyroscope {
   /* align-items: start; */
   position: absolute;
-  margin: -50% 6% 0 4%;
+  margin: -0% 6% 0 4%;
   padding-bottom: 0px;
   align-self: center;
   /* justify-content: start; */
