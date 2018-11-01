@@ -6,7 +6,7 @@ video = document.querySelector('video');
 
 canvas = document.createElement('canvas');
 
-screenshotButton.onclick  = function() {
+screenshotButton.onclick = cubeClick.onclick = function() {
   childCount();
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
