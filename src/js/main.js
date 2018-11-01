@@ -7,9 +7,11 @@ const selectors = [ videoSelect];
 function gotDevices(deviceInfos) {
   // Handles being called several times to update labels. Preserve values.
   const values = selectors.map(select => select.value);
-
+  console.log("values are", values);
+  // clear selectors queue
   selectors.forEach(select => {
     while (select.firstChild) {
+      console.log("selectors queue - remove element", select.firstChild);
       select.removeChild(select.firstChild);
     }
   });
@@ -19,13 +21,12 @@ function gotDevices(deviceInfos) {
     const option = document.createElement('option');
     option.value = deviceInfo.deviceId;
     if (deviceInfo.kind === 'videoinput') {
-      console.log(option.text = deviceInfo.label || `camera ${videoSelect.length + 1}`);
+      console.log("option.text = devInfo... ",option.text = deviceInfo.label || `camera ${videoSelect.length + 1}`);
       option.text = deviceInfo.label || `camera ${videoSelect.length + 1}`;
+      console.log("option = ",option);
 
       videoSelect.appendChild(option);
-    } else {
-      console.log('Some other kind of source/device: ', deviceInfo);
-    }
+    } else {}
   }
 
   selectors.forEach((select, selectorIndex) => {
@@ -35,7 +36,8 @@ function gotDevices(deviceInfos) {
     }
   });
 }
-console.log(navigator.mediaDevices.enumerateDevices());
+console.log("nav media dev inumerate dev: ",navigator.mediaDevices.enumerateDevices());
+
 navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
 
 
@@ -57,9 +59,9 @@ function start() {
     });
   }
   const videoSource = videoSelect.value;
-  console.log(videoSelect.value);
-  const constraints = {
-    video: {deviceId: videoSource ? {exact: videoSource} : undefined}
+  console.log("videoSelect end val ", videoSelect.value);
+  const constraints = {             //дописать!!!!!!!!!!!!!!
+    video: {facingMode: "environment",deviceId: videoSource ? {exact: videoSource } : undefined}
   };
   navigator.mediaDevices.getUserMedia(constraints).then(gotStream).then(gotDevices).catch(handleError);
 }
