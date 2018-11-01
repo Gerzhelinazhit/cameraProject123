@@ -1,11 +1,11 @@
-var hex_height = 3*Math.sqrt(3)/2;
+var hex_height = 3*Math.sqrt(3)/2*1.2;
 init();
 animate();
 
 var camera, scene, renderer, cube;
 
 function init() {
-  camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 3, 1000 );
+  camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 1, 1000 );
   camera.position.z = 0;
   camera.position.y = 0;
   camera.position.x = 0;
