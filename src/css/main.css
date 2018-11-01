@@ -142,9 +142,10 @@ body {
 }
 
 .select {
-  visibility: hidden;
+  margin-top: 100%;
 }
-#videoSource {
+
+select#videoSource {
   visibility: hidden;
 }
 
@@ -178,7 +179,7 @@ body {
 .horizontal_hyroscope {
   /* align-items: start; */
   position: absolute;
-  margin: -35% 6% 0 4%;
+  margin: -50% 6% 0 4%;
   padding-bottom: 0px;
   align-self: center;
   /* justify-content: start; */
