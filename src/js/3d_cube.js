@@ -5,7 +5,7 @@ animate();
 var camera, scene, renderer, cube;
 
 function init() {
-  camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, hex_height, 1000 );
+  camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 3, 1000 );
   camera.position.z = 0;
   camera.position.y = 0;
   camera.position.x = 0;
