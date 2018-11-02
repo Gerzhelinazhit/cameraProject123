@@ -19,7 +19,7 @@ function init(){
   var rotation_angle = 360/n;
   var max_margin = 4; // think about it!!!
   var i = 0;
-  camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 2, 1000 );
+  camera = new THREE.PerspectiveCamera( rotation_angle, window.innerWidth / window.innerHeight, 3, 1000 );
   console.log("3d camera fov is",camera.fov);
   console.log("3d camera position z", camera.position.z);
   controls = new THREE.DeviceOrientationControls( camera );
@@ -53,6 +53,9 @@ function init(){
   }
 
   function writePlane(x,y,y2,z,bett,i){
+    console.log("plane",i);
+    console.log("A1:",x,":",y,":",z);
+
     figure.vertices.push(new THREE.Vector3(x,y,z));
     figure.vertices.push(new THREE.Vector3(x,y2,z));
 
