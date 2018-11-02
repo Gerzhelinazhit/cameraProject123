@@ -19,7 +19,7 @@ function init(){
   var rotation_angle = 360/n;
   var max_margin = 4; // think about it!!!
   var i = 0;
-  camera = new THREE.PerspectiveCamera( rotation_angle, window.innerWidth / window.innerHeight, max_margin*Math.cos(toRadians(rotation_angle/2)), 1000 );
+  camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, max_margin*Math.cos(toRadians(rotation_angle/2)), 1000 );
   console.log("3d camera fov is",camera.fov);
   console.log("3d camera position z", camera.position.z);
   controls = new THREE.DeviceOrientationControls( camera );
