@@ -19,7 +19,7 @@ function init(){
   var rotation_angle = 360/n;
   var max_margin = 4; // think about it!!!
   var i = 0;
-  camera = new THREE.PerspectiveCamera( rotation_angle+15, window.innerWidth / window.innerHeight, 3, 1000 );
+  camera = new THREE.PerspectiveCamera( rotation_angle, window.innerWidth / window.innerHeight, 3, 1000 );
   console.log("3d camera fov is",camera.fov);
   console.log("3d camera position z", camera.position.z);
   controls = new THREE.DeviceOrientationControls( camera );
@@ -63,11 +63,11 @@ function init(){
     var z2 = z*Math.cos(toRadians((i+1)*rotation_angle+bett))/Math.cos(toRadians(i*rotation_angle+bett));
     var x2;
     console.log("angle=",(i+1)*rotation_angle+bett);
-    if (((i+1)*rotation_angle+bett >= 0) && ((i+1)*rotation_angle+bett <= 180)){
-      x2 = Math.sqrt(max_margin**2 - z2**2);
+    if (((i+1)*rotation_angle+bett >= 180) && ((i+1)*rotation_angle+bett <= 360)){
+      x2 = Math.sqrt(max_margin**2 - z2**2)*(-1);
     }
     else {
-      x2 = Math.sqrt(max_margin**2 - z2**2)*(-1);
+      x2 = Math.sqrt(max_margin**2 - z2**2);
     }
 
     //console.log("A3:",x2,":",y2,":",z2);
