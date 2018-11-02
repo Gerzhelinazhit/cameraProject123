@@ -18,7 +18,7 @@ function init(){
   scene = new THREE.Scene();
   var material2 = new THREE.MeshBasicMaterial( { color: 0x0000ff} );
 
-
+  writeFigure(rotation_angle,max_margin);
   function writeFigure(rotation_angle, max_margin) {
     figure = new THREE.Geometry();
     var x1,y1,y2,z1;
