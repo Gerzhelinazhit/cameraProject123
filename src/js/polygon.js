@@ -55,12 +55,15 @@ function init(){
   function writePlane(x,y,y2,z,bett,i){
     console.log("plane",i);
     console.log("A1:",x,":",y,":",z);
+    console.log("A2:",x,":",y2,":",z);
 
     figure.vertices.push(new THREE.Vector3(x,y,z));
     figure.vertices.push(new THREE.Vector3(x,y2,z));
 
     var z2 = z*Math.cos(toRadians((i+1)*rotation_angle+bett))/Math.cos(toRadians(i*rotation_angle+bett));
     var x2 = Math.sqrt(max_margin**2 - z2**2);
+    console.log("A3:",x2,":",y2,":",z2);
+    console.log("A1:",x2,":",y,":",z2);
 
     figure.vertices.push(new THREE.Vector3(x2,y2,z2));
     figure.vertices.push(new THREE.Vector3(x2,y,z2));
