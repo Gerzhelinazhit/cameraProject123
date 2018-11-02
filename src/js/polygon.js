@@ -19,7 +19,7 @@ function init(){
   var rotation_angle = 360/n;
   var max_margin = 4; // think about it!!!
   var i = 0;
-  camera = new THREE.PerspectiveCamera( 150, window.innerWidth / window.innerHeight, 3, 1000 );
+  camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 3, 1000 );
   console.log("3d camera fov is",camera.fov);
   console.log("3d camera position z", camera.position.z);
   controls = new THREE.DeviceOrientationControls( camera );
@@ -59,8 +59,10 @@ function init(){
     var z2 = z*Math.cos(toRadians((i+1)*rotation_angle+bett))/Math.cos(toRadians(i*rotation_angle+bett));
     var x2 = Math.sqrt(max_margin**2 - z2**2);
 
-    figure.vertices.push(new THREE.Vector3(x2,y,z2));
     figure.vertices.push(new THREE.Vector3(x2,y2,z2));
+    figure.vertices.push(new THREE.Vector3(x2,y,z2));
+    figure.vertices.push(new THREE.Vector3(x,y,z));
+    figure.vertices.push(new THREE.Vector3(x2,y,z2));
     line = new THREE.Line( figure, material2 );
 
     scene.add(line);
