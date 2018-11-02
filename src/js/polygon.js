@@ -1,5 +1,8 @@
 container = document.querySelector(".video_container");
+init();
+animate();
 
+var camera, scene, renderer, figure;
 //var n = input.getTexParameter(); // get text from input, n == amount of planes
 var n = 8;
 var rotation_angle = 360/n;
@@ -7,7 +10,7 @@ var max_margin = 4; // think about it!!!
 var i = 0;
 
 function init(){
-  camera = new THREE.PerspectiveCamera( 150, window.innerWidth / window.innerHeight, 1.7, 1000 );
+  camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 1.7, 1000 );
   console.log("3d camera fov is",camera.fov);
   console.log("3d camera position z", camera.position.z);
   controls = new THREE.DeviceOrientationControls( camera );
@@ -21,19 +24,19 @@ function init(){
   writeFigure(rotation_angle,max_margin);
   function writeFigure(rotation_angle, max_margin) {
     figure = new THREE.Geometry();
-    var x1,y1,y2,z1;
-    y1 = max_margin*Math.tan(rotation_angle/2);
-    y2 = y1*(-1);
-    z1 = max_margin*Math.cos(rotation_angle/2);
-    x1 = max_margin*Math.sin(rotation_angle/2);
     var bett = rotation_angle/2;
+    var x1,y1,y2,z1;
+    y1 = max_margin*Math.tan(bett);
+    y2 = y1*(-1);
+    z1 = max_margin*Math.cos(bett);
+    x1 = max_margin*Math.sin(bett);
+
 
     while (i < n){
       z1 = writePlane(x1,y1,y2,z1,bett,i);
       x1 = Math.sqrt(max_margin**2 - z1**2);
       i = i+1;
     }
-
   }
 
   function writePlane(x,y,y2,z,bett,i){
