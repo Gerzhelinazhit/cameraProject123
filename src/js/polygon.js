@@ -19,7 +19,7 @@ function init(){
   var rotation_angle = 360/n;
   var max_margin = 4; // think about it!!!
   var i = 0;
-  camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 3, 1000 );
+  camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 4 , 1000 );
   console.log("3d camera fov is",camera.fov);
   console.log("3d camera position z", camera.position.z);
   controls = new THREE.DeviceOrientationControls( camera );
@@ -34,40 +34,38 @@ function init(){
   function writeFigure(rotation_angle, max_margin) {
     figure = new THREE.Geometry();
     var bett = rotation_angle/2;
-    console.log("bett=",bett,", angle=",rotation_angle,", margin=",max_margin);
 
     var x1,y1,y2,z1;
+    x1 = max_margin*Math.sin(toRadians(bett));
     y1 = max_margin*Math.sin(toRadians(bett));
     y2 = y1*(-1);
     z1 = max_margin*Math.cos(toRadians(bett));
-    x1 = max_margin*Math.sin(toRadians(bett));
     console.log("x1: ",x1," ,y1",y1," ,y2",y2,", z1: ",z1);
 
-
     while (i < 8){
-      z1 = writePlane(x1,y1,y2,z1,bett,i);
-      console.log("z1=",z1);
-      x1 = max_margin*Math.sin(toRadians((i)*rotation_angle+bett));
+      writePlane(y1,y2,bett,i);
+      //x1 = max_margin*Math.sin(toRadians((i+1)*rotation_angle+bett));
       i = i+1;
    }
   }
 
-  function writePlane(x,y,y2,z,bett,i){
+  function writePlane(y,y2,bett,i){
     console.log("plane",i);
+    var z = max_margin*Math.cos(toRadians((i)*rotation_angle+bett));
+    console.log("angle=",(i)*rotation_angle+bett);
+    var x = max_margin*Math.sin(toRadians((i)*rotation_angle+bett));
     console.log("A1:",x,":",y,":",z);
     console.log("A2:",x,":",y2,":",z);
 
     figure.vertices.push(new THREE.Vector3(x,y,z));
     figure.vertices.push(new THREE.Vector3(x,y2,z));
 
-    var z2 = z*Math.cos(toRadians((i+1)*rotation_angle+bett))/Math.cos(toRadians(i*rotation_angle+bett));
-    var x2;
+    var z2 = max_margin*Math.cos(toRadians((i+1)*rotation_angle+bett));
     console.log("angle=",(i+1)*rotation_angle+bett);
-    x2 = max_margin*Math.sin(toRadians((i+1)*rotation_angle+bett));
+    var x2 = max_margin*Math.sin(toRadians((i+1)*rotation_angle+bett));
 
-
-    //console.log("A3:",x2,":",y2,":",z2);
-    //console.log("A1:",x2,":",y,":",z2);
+    console.log("A3:",x2,":",y2,":",z2);
+    console.log("A4:",x2,":",y,":",z2);
 
     figure.vertices.push(new THREE.Vector3(x2,y2,z2));
     figure.vertices.push(new THREE.Vector3(x2,y,z2));
@@ -76,8 +74,6 @@ function init(){
     line = new THREE.Line( figure, material2 );
 
     scene.add(line);
-    console.log(z2);
-    return z2;
   }
 
   renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
@@ -103,3 +99,55 @@ function onWindowResize() {
   renderer.setSize( window.innerWidth, window.innerHeight );
 
 }
+
+
+
+// writeFigure(rotation_angle,max_margin);
+// function writeFigure(rotation_angle, max_margin) {
+//   figure = new THREE.Geometry();
+//   var bett = rotation_angle/2;
+//   console.log("bett=",bett,", angle=",rotation_angle,", margin=",max_margin);
+//
+//   var x1,y1,y2,z1;
+//   y1 = max_margin*Math.sin(toRadians(bett));
+//   y2 = y1*(-1);
+//   z1 = max_margin*Math.cos(toRadians(bett));
+//   x1 = max_margin*Math.sin(toRadians(bett));
+//   console.log("x1: ",x1," ,y1",y1," ,y2",y2,", z1: ",z1);
+//
+//
+//   while (i < 8){
+//     z1 = writePlane(x1,y1,y2,z1,bett,i);
+//     console.log("z1=",z1);
+//     x1 = max_margin*Math.sin(toRadians((i)*rotation_angle+bett));
+//     i = i+1;
+//   }
+// }
+//
+// function writePlane(x,y,y2,z,bett,i){
+//   console.log("plane",i);
+//   console.log("A1:",x,":",y,":",z);
+//   console.log("A2:",x,":",y2,":",z);
+//
+//   figure.vertices.push(new THREE.Vector3(x,y,z));
+//   figure.vertices.push(new THREE.Vector3(x,y2,z));
+//
+//   var z2 = z*Math.cos(toRadians((i+1)*rotation_angle+bett))/Math.cos(toRadians(i*rotation_angle+bett));
+//   var x2;
+//   console.log("angle=",(i+1)*rotation_angle+bett);
+//   x2 = max_margin*Math.sin(toRadians((i+1)*rotation_angle+bett));
+//
+//
+//   //console.log("A3:",x2,":",y2,":",z2);
+//   //console.log("A1:",x2,":",y,":",z2);
+//
+//   figure.vertices.push(new THREE.Vector3(x2,y2,z2));
+//   figure.vertices.push(new THREE.Vector3(x2,y,z2));
+//   figure.vertices.push(new THREE.Vector3(x,y,z));
+//   figure.vertices.push(new THREE.Vector3(x2,y,z2));
+//   line = new THREE.Line( figure, material2 );
+//
+//   scene.add(line);
+//   console.log(z2);
+//   return z2;
+// }
