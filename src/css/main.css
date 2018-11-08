@@ -138,6 +138,7 @@ body {
   z-index: 70;
   width: fit-content;
   height: fit-content;
+  /* top: 25%; */
   /*display: inline-block;*/
 }
 
