@@ -13,7 +13,7 @@ screenshotButton.onclick = cubeClick.onclick = function() {
   canvas.height = 0.9*window.innerWidth;
   //  resize_canvas.getContext('2d').drawImage(orig_src, 0, 0, width, height);
   var y_offset = (window.innerHeight-0.9*window.innerWidth)/2;
-  var x_offset = 0.05*window.innerWidth;
+  var x_offset = 0.2*window.innerWidth;
   console.log("wid: ",window.innerWidth,", 09H: ",0.9*window.innerHeight,", x offset: ",x_offset,", y offset: ",y_offset);
   canvas.getContext('2d').drawImage(video, x_offset, y_offset, 0.9*window.innerWidth,0.9*window.innerWidth);
   canvas.id = 'screenshot_img';

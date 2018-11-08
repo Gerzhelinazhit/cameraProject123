@@ -132,11 +132,12 @@ body {
 
 .image {
   position: absolute;
-  right: 25%;
+  /*right: 25%;
   top: 25%;
-  /*width: fit-content;*/
+  width: fit-content;*/
   z-index: 70;
   width: fit-content;
+  height: fit-content;
   /*display: inline-block;*/
 }
 
