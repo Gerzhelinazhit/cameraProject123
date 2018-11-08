@@ -133,11 +133,10 @@ body {
 .image {
   position: fixed;
   top: 25%;
-  left: 25%;
+  right: 25%;
   /*width: fit-content;*/
   z-index: 70;
   width: fit-content;
-
   /*display: inline-block;*/
 }
 

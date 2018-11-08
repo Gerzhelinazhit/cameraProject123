@@ -68,7 +68,8 @@ function init(counter){
     scene.add(line);
   }
 
-  if (counter != 0) {
+  if (counter !== 0) {
+    console.log("counter: ",counter);
     var myTexture = document.querySelector(".image");
     texture = THREE.ImageUtils.loadTexture(myTexture);
     material = new THREE.MeshBasicMaterial({map: texture});
