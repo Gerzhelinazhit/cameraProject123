@@ -131,9 +131,9 @@ body {
 }
 
 .image {
-  position: fixed;
-  top: 25%;
+  position: absolute;
   right: 25%;
+  top: 25%;
   /*width: fit-content;*/
   z-index: 70;
   width: fit-content;
