@@ -12,10 +12,10 @@ screenshotButton.onclick = cubeClick.onclick = function() {
   canvas.width = 0.9*window.innerWidth;
   canvas.height = 0.9*window.innerWidth;
   //  resize_canvas.getContext('2d').drawImage(orig_src, 0, 0, width, height);
-  var y_offset = 0.1*window.window.innerHeight;
-  var x_offset = (window.innerWidth-0.8*window.window.innerHeight)/2;
+  var y_offset = 0.1* window.innerWidth;//0.1*window.innerHeight;
+  var x_offset = (window.innerHeight-0.8*window.innerWidth)/2;//(window.innerWidth-0.8*window.innerHeight)/2;
   console.log("wid: ",window.innerWidth,", 09H: ",0.8*window.innerHeight,", x offset: ",x_offset,", y offset: ",y_offset);
-  canvas.getContext('2d').drawImage(video, x_offset, y_offset, 0.8*window.innerHeight,0.8*window.innerHeight);
+  canvas.getContext('2d').drawImage(video, x_offset, y_offset, 0.8*window.innerWidth,0.8*window.innerWidth);
   canvas.id = 'screenshot_img';
 
   // Other browsers will fall back to image/png
