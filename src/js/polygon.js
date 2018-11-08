@@ -47,6 +47,7 @@ function init(counter){
       writePlane(y1,y2,bett,i);
       i = i+1;
    }
+   checkCounter(counter);
   }
 
   function writePlane(y,y2,bett,i){
@@ -68,22 +69,33 @@ function init(counter){
 
     scene.add(line);
   }
-
-  if (counter !== 0) {
-    console.log("counter: ",counter);
-    var myTexture = document.querySelector(".image");
-    var texture = new THREE.TextureLoader().load(myTexture);
-    var material = new THREE.MeshBasicMaterial({map: texture});
-      // material = new THREE.MeshPhongMaterial({color: 0xCC0000});
-    var z = max_margin*Math.cos(toRadians((counter-1)*rotation_angle+rotation_angle/2));
-    var x = max_margin*Math.sin(toRadians((counter-1)*rotation_angle+rotation_angle/2));
-    var z2 = max_margin*Math.cos(toRadians((counter)*rotation_angle+rotation_angle/2));
-    var x2 = max_margin*Math.sin(toRadians((counter)*rotation_angle+rotation_angle/2));
-    var geometry = new THREE.PlaneGeometry((x2-x), (z2-z));
-    var mesh = new THREE.Mesh(geometry, material);
-    //pointLight = new THREE.PointLight(0xFFFFFF);
-    scene.add(mesh);
+  function checkCounter(counter) {
+    if (counter !== 0) {
+      console.log("counter: ",counter);
+      while ( counter>0){
+        var myTextures = [];
+        myTextures = document.querySelectorAll(".image");
+        var textures = getTexture(myTextures,counter);
+        for(var j = textures.length; j>0; j--){
+          var material = new THREE.MeshBasicMaterial({map: textures[j]});
+          // material = new THREE.MeshPhongMaterial({color: 0xCC0000});
+          var z = max_margin*Math.cos(toRadians((counter-1)*rotation_angle+rotation_angle/2));
+          var x = max_margin*Math.sin(toRadians((counter-1)*rotation_angle+rotation_angle/2));
+          var z2 = max_margin*Math.cos(toRadians((counter)*rotation_angle+rotation_angle/2));
+          var x2 = max_margin*Math.sin(toRadians((counter)*rotation_angle+rotation_angle/2));
+          var geometry = new THREE.PlaneGeometry((x2-x), (z2-z));
+          var mesh = new THREE.Mesh(geometry, material);
+          //pointLight = new THREE.PointLight(0xFFFFFF);
+          scene.add(mesh);
+          counter = counter-1;
+        }
+      }
+    }
+    else{
+      console.log("counter is 0 :",counter);
+    }
   }
+
 
 
   renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
@@ -92,6 +104,32 @@ function init(counter){
   renderer.domElement.className = 'n_polygon';
   container.appendChild( renderer.domElement );
   window.addEventListener( 'resize', onWindowResize, false );
+}
+
+
+function getTexture( myTextures, counter ) {
+  var textures = [];
+  for ( var i = counter; i >0 ; i -- ) {
+    console.log("texture(",i,")");
+    textures[ i ] = new THREE.Texture();
+  }
+
+  var imageObj = new Image();
+  imageObj.onload = function () {
+    var canvas, context;
+    var tileWidth = imageObj.height;
+    for ( var i = 0; i < textures.length; i ++ ) {
+      canvas = document.createElement( 'canvas' );
+      context = canvas.getContext( '2d' );
+      canvas.height = tileWidth;
+      canvas.width = tileWidth;
+      context.drawImage( imageObj, tileWidth * i, 0, tileWidth, tileWidth, 0, 0, tileWidth, tileWidth );
+      textures[ i ].image = canvas;
+      textures[ i ].needsUpdate = true;
+    }
+  };
+  imageObj.src = myTextures;
+  return textures;
 }
 
 
@@ -104,6 +142,7 @@ function animate() {
   if (counter !=0){
     init(counter)
   }
+  //clearInterval(10);
 
 }
 
