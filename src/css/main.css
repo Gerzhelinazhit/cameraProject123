@@ -137,7 +137,7 @@ body {
   /*width: fit-content;*/
   z-index: 70;
   width: fit-content;
-  height: 90%;
+  margin:10% 15% 5% 15%;
   /*display: inline-block;*/
 }
 
