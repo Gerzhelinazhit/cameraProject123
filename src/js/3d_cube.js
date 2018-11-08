@@ -74,14 +74,12 @@ function init() {
   renderer.domElement.className = 'd_cube_help';
   container.appendChild( renderer.domElement );
   window.addEventListener( 'resize', onWindowResize, false );
-  //window.addEventListener('deviceorientation', setOrientationControls, true);
 }
 
 function animate() {
 
   window.requestAnimationFrame( animate );
   controls.update();
-
   renderer.render( scene, camera );
 
 }
@@ -93,20 +91,6 @@ function onWindowResize() {
   renderer.setSize( window.innerWidth, window.innerHeight );
 
 }
-
-// function setOrientationControls(e) {
-//   console.log("mobile orientation test");
-//   if (!e.alpha) {
-//     console.log("ho hyroscope");
-//     return;
-//   }
-//   controls = new THREE.DeviceOrientationControls(camera, true);
-//   controls.connect();
-//   controls.update();
-//
-//   window.removeEventListener('deviceorientation', setOrientationControls, true);
-//   console.log("mobile orientation");
-// }
 
 
 

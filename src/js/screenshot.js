@@ -5,22 +5,30 @@ cubeClick = document.querySelector(".d_cube_help");
 video = document.querySelector('video');
 
 canvas = document.createElement('canvas');
+screenshotButton.textContent = "Take screenshot";
 
 screenshotButton.onclick = cubeClick.onclick = function() {
   childCount();
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  canvas.getContext('2d').drawImage(video, 0, 0);
+  canvas.width = 0.9*window.innerWidth;
+  canvas.height = 0.9*window.innerWidth;
+  //  resize_canvas.getContext('2d').drawImage(orig_src, 0, 0, width, height);
+  var y_offset = 0.05*window.innerHeight;
+  var x_offset = (window.innerHeight - 0.9*window.innerWidth)/2;
+  console.log("wid: ",window.innerWidth,", 09H: ",0.9*window.innerHeight,", x offset: ",x_offset,", y offset: ",y_offset);
+  canvas.getContext('2d').drawImage(video, x_offset, y_offset, 0.7*window.innerWidth,0.7*window.innerWidth);
   canvas.id = 'screenshot_img';
- // img = document.createElement('img');
+
+
 
   // Other browsers will fall back to image/png
-  let div = document.getElementById('image-container');
+  let div = document.getElementById('container');
   let img = document.createElement("img");
   img.className = 'image';
   div.appendChild(img);
 
   img.src = canvas.toDataURL('src/img');
+  //getCameraParameters();
+
 };
 
 function handleSuccess(stream) {

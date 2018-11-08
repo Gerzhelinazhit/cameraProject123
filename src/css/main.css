@@ -122,28 +122,29 @@ body {
 }
 
 .screenshot-button {
-  /* margin: 10px; */
-  /* padding: 3px; */
-  width: 100%;
-  /* height: 100%; */
-  visibility: hidden;
+  margin: 10%;
+  padding: 3px;
+  width: auto;
+  height: 10%;
+  /*visibility: hidden;*/
   z-index: 60;
 }
 
 .image {
-  position: relative;
-  margin-top: 3%;
-  margin-left: 10px;
-  margin-bottom: 20px;
+  position: fixed;
+  top: 5%;
+  left: 10%;
   /*width: fit-content;*/
-  z-index: 1;
-  width: 150px;
-  height: 150px;
-  display: inline-block;
+  z-index: 70;
+  width: fit-content;
+  /* height: 90%; */
+  /*display: inline-block;*/
 }
 
 .select {
-  margin-top: 100%;
+  margin-top: 10%;
+  height: fit-content;
+  width: fit-content;
 }
 
 select#videoSource {
@@ -159,6 +160,8 @@ select#videoSource {
 #image-container{
   justify-content: start;
   flex-wrap: wrap;
+  height: fit-content;
+  width: fit-content;
 }
 
 .video_container {
