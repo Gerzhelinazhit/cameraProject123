@@ -9,8 +9,8 @@ screenshotButton.textContent = "Take screenshot";
 
 screenshotButton.onclick = cubeClick.onclick = function() {
   var counter = childCount();
-  canvas.width = 0.9*window.innerWidth;
-  canvas.height = 0.9*window.innerWidth;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerWidth;
   //  resize_canvas.getContext('2d').drawImage(orig_src, 0, 0, width, height);
   var y_offset = (window.innerHeight-0.9*window.innerWidth)/2;
   var x_offset = 0.2*window.innerWidth;

@@ -15,6 +15,7 @@ function toRadians (angle) {
 }
 
 function init(counter){
+  console.log("init 3d-figure");
   var n = 8;
   var rotation_angle = 360/n;
   var max_margin = 4; // think about it!!!
@@ -71,15 +72,15 @@ function init(counter){
   if (counter !== 0) {
     console.log("counter: ",counter);
     var myTexture = document.querySelector(".image");
-    texture = THREE.ImageUtils.loadTexture(myTexture);
-    material = new THREE.MeshBasicMaterial({map: texture});
+    var texture = new THREE.TextureLoader().load(myTexture);
+    var material = new THREE.MeshBasicMaterial({map: texture});
       // material = new THREE.MeshPhongMaterial({color: 0xCC0000});
     var z = max_margin*Math.cos(toRadians((counter-1)*rotation_angle+rotation_angle/2));
     var x = max_margin*Math.sin(toRadians((counter-1)*rotation_angle+rotation_angle/2));
     var z2 = max_margin*Math.cos(toRadians((counter)*rotation_angle+rotation_angle/2));
     var x2 = max_margin*Math.sin(toRadians((counter)*rotation_angle+rotation_angle/2));
-    geometry = new THREE.PlaneGeometry((x2-x), (z2-z));
-    mesh = new THREE.Mesh(geometry, material);
+    var geometry = new THREE.PlaneGeometry((x2-x), (z2-z));
+    var mesh = new THREE.Mesh(geometry, material);
     //pointLight = new THREE.PointLight(0xFFFFFF);
     scene.add(mesh);
   }
